@@ -17,6 +17,7 @@ code: testDestination(bali)
 Expected Output: {name: 'Bali', location: 'Indonesia', landmarks: Array(2), timeOfYear: 'summer', review: 'Best city know for its beautiful islands'}
 
 -------- 
+
 Test: "It should return correct name when UAE option is chosen 
 code: testDestination(uae)
 code: this.name

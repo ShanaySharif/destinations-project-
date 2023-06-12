@@ -39,9 +39,9 @@ function testDestination(place) {
 function Destinations(place) {
     document.getElementById('name').innerHTML = 'Name:' + " " + place.name;
     document.getElementById('location').innerHTML = 'Location:' + " " + place.location;
-    document.getElementById('location').innerHTML = 'landmark:' + " " + place.landmark;
-    document.getElementById('location').innerHTML = 'timeOfYear:' + " " + place.timeOfYear;
-    document.getElementById('location').innerHTML = 'review:' + " " + place.review;
+    document.getElementById('landmark').innerHTML = 'landmark:' + " " + place.landmark;
+    document.getElementById('timeOfYear').innerHTML = 'timeOfYear:' + " " + place.timeOfYear;
+    document.getElementById('review').innerHTML = 'review:' + " " + place.review;
 
 
 
