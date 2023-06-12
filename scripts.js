@@ -4,7 +4,7 @@ function testDestination(place) {
     this.loc = place.location;
     this.landmarks = place.landmarks;
     this.timeOfYear = place.timeOfYear;
-    this.notes = place.notes;
+    this.review = place.review;
     console.log(place)
   }
 
@@ -14,7 +14,7 @@ function testDestination(place) {
       location: 'Dubai',
       landmarks: ['Burj Khalifa', 'Dubai Fountain'],
       timeOfYear: 'winter',
-      notes: 'best city in the middle east '
+      review: 'best city in the middle east '
     };
 
     const kenya = {
@@ -22,7 +22,7 @@ function testDestination(place) {
         location: 'Nairobi',
         landmarks: ['safari', 'kenyan Museum'],
         timeOfYear: 'spring',
-        notes: 'Best city know for its national park'
+        review: 'Best city know for its national park'
       }
 
       const bali = {
@@ -30,5 +30,16 @@ function testDestination(place) {
         location: 'Indonesia',
         landmarks: ['volcanoes', 'islands'],
         timeOfYear: 'summer',
-        notes: 'Best city know for its beautiful islands'
+        review: 'Best city known for its beautiful islands'
       };
+
+      //UI Logic 
+
+
+function Destinations(place) {
+    document.getElementById('name').innerHTML = 'Name:' + " " + place.name;
+    this.location = place.location;
+    this.landmarks = place.landmarks;
+    this.timeOfYear = place.timeOfYear;
+    this.review = place.review;
+  }
