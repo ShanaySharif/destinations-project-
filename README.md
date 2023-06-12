@@ -16,7 +16,15 @@ Test: "It should return correct object when Bali option is chosen
 code: testDestination(bali)
 Expected Output: { '}
 
+-------- 
+Test: "It should return correct name when UAE option is chosen 
+code: testDestination(uae)
+code: this.name
+Expected Output: 'UAE'
 
-
+Test: "It should return correct name when UAE option is chosen 
+code: testDestination(uae)
+code: this.name
+Expected Output: 'UAE'
 
 

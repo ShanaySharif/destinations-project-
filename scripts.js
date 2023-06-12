@@ -16,3 +16,11 @@ function testDestination(place) {
       timeOfYear: 'winter',
       notes: 'best city in the middle east '
     };
+
+    const kenya = {
+        name: 'Kenya',
+        location: 'Nairobi',
+        landmarks: ['safari', 'kenyan Museum'],
+        timeOfYear: 'spring',
+        notes: 'Best city know for its national park'
+      }
