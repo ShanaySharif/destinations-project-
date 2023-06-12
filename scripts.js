@@ -24,3 +24,11 @@ function testDestination(place) {
         timeOfYear: 'spring',
         notes: 'Best city know for its national park'
       }
+
+      const bali = {
+        name: 'Bali',
+        location: 'Indonesia',
+        landmarks: ['volcanoes', 'islands'],
+        timeOfYear: 'summer',
+        notes: 'Best city know for its beautiful islands'
+      };
