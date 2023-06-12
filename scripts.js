@@ -38,8 +38,16 @@ function testDestination(place) {
 
 function Destinations(place) {
     document.getElementById('name').innerHTML = 'Name:' + " " + place.name;
-    this.location = place.location;
+    document.getElementById('location').innerHTML = 'Location:' + " " + place.location;
+    document.getElementById('location').innerHTML = 'landmark:' + " " + place.landmark;
+    document.getElementById('location').innerHTML = 'timeOfYear:' + " " + place.timeOfYear;
+    document.getElementById('location').innerHTML = 'review:' + " " + place.review;
+
+
+
     this.landmarks = place.landmarks;
     this.timeOfYear = place.timeOfYear;
     this.review = place.review;
   }
+
+
