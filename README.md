@@ -1,5 +1,5 @@
 
-
+Describe: testDestination()
 
 Test: "It should return correct object when uae option is chosen 
 code: testDestination(uae)

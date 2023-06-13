@@ -1,53 +1,84 @@
-//business logic for place object
-function testDestination(place) {
-    this.name = 'Name:' + " " + place.name;
-    this.loc = place.location;
-    this.landmarks = place.landmarks;
-    this.timeOfYear = place.timeOfYear;
-    this.review = place.review;
-    console.log(place)
+// Business Logic for DestinationBook ---------
+function DestinationBook() {
+    this.destinations = {};
+    this.currentId = 0;
   }
-
+DestinationBook.prototype.addDestination = function(destination) {
+    destination.id = this.assignId();
+    this.destinations[destination.id] = destination;
+  };
   
-  const uae = {
-      name: 'UAE',
-      location: 'Dubai',
-      landmarks: ['Burj Khalifa', 'Dubai Fountain'],
-      timeOfYear: 'winter',
-      review: 'best city in the middle east '
-    };
+  DestinationBook.prototype.assignId = function() {
+    this.currentId += 1;
+    return this.currentId;
+  };
+  
+  DestinationBook.prototype.findDestinations = function(id) {
+    if (this.destinations[id] !== undefined) {
+      return this.destinations[id];
+    }
+    return false;
+  };
+  
 
-    const kenya = {
-        name: 'Kenya',
-        location: 'Nairobi',
-        landmarks: ['safari', 'kenyan Museum'],
-        timeOfYear: 'spring',
-        review: 'Best city know for its national park'
-      }
-
-      const bali = {
-        name: 'Bali',
-        location: 'Indonesia',
-        landmarks: ['volcanoes', 'islands'],
-        timeOfYear: 'summer',
-        review: 'Best city known for its beautiful islands'
+// Business Logic for Destinations ---------
+      function Destination(countryName, location, landmark, timeOfYear, review) {
+        this.countryName = countryName;
+        this.location = location;
+        this.landmark = landmark;
+        this.timeOfYear = timeOfYear;
+        this.review = review;
+    }
+      Destination.prototype.loc = function() {
+        return this.countryName + " " + this.location + " " + this.landmark + " " + this.timeOfYear + " " + this.review
       };
 
-      //UI Logic 
+      
+ 
+//UI Logic 
+let destinationBook = new DestinationBook();
+function listDestinations(destinationsToDisplay) {
+  let destinationsDiv = document.querySelector("div#destination");
+  destinationsDiv.innerText =  null;
+  const ul = document.createElement("ul");
+  Object.keys(destinationsToDisplay.destinations).forEach(function(key) {
+    const destination = destinationsToDisplay.findDestinations(key);
+    console.log(destination.location);
+
+    const li = document.createElement("li");
+    li.append(destination.loc());
+    
+
+    li.setAttribute("id", destination.id);
+    ul.append(li);
+  });
+  destinationsDiv.append(ul);
+}
+function displayDestinationDetails(event) {
+    const destination =
+    destinationBook.findDestinations(event.target.id);
+    document.querySelector(".countryName").innerText = destination.countryName;
+    document.querySelector(".location").innerText = destination.location;
+    document.querySelector(".landmark").innerText = destination.landmark;
+    document.querySelector(".timeOfYear").innerText = destination.timeOfYear;
+    document.querySelector(".review").innerText = destination.review;document.querySelector("div#travel-details").removeAttribute("class");
 
 
-function Destinations(place) {
-    document.getElementById('name').innerHTML = 'Name:' + " " + place.name;
-    document.getElementById('location').innerHTML = 'Location:' + " " + place.location;
-    document.getElementById('landmark').innerHTML = 'landmark:' + " " + place.landmark;
-    document.getElementById('timeOfYear').innerHTML = 'timeOfYear:' + " " + place.timeOfYear;
-    document.getElementById('review').innerHTML = 'review:' + " " + place.review;
 
+}
 
-
-    this.landmarks = place.landmarks;
-    this.timeOfYear = place.timeOfYear;
-    this.review = place.review;
-  }
-
-
+      function handleFormSubmission(event) {
+        event.preventDefault();
+        const inputtedCountryName = document.querySelector("input#new-countryName").value;
+        const inputtedLocation = document.querySelector("input#new-location").value;
+        const inputtedLandmark = document.querySelector("input#new-landmark").value;
+        const inputtedReview = document.querySelector("input#new-review").value;
+        const inputtedTimeOfYear = document.querySelector("input#new-timeOfYear").value;
+        let newDestination = new Destination(inputtedCountryName, inputtedLocation, inputtedLandmark, inputtedTimeOfYear, inputtedReview);
+        destinationBook.addDestination(newDestination);
+        listDestinations(destinationBook);
+      }
+      
+      window.addEventListener("load", function (){
+        document.querySelector("form#new-destination").addEventListener("submit", handleFormSubmission);
+      });
